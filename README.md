@@ -697,7 +697,8 @@ Every payout passes through a **four-layer sequential validation pipeline** befo
 
 ### ML Risk Engine
 
-![ML Risk Engine](images/riskengine.jpg)
+<img width="8192" height="5021" alt="2  ML Risk Engine" src="https://github.com/user-attachments/assets/4c83dcdf-6106-4f6f-89db-382370264590" />
+
 
 ---
 
