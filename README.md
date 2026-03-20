@@ -692,7 +692,7 @@ Every payout passes through a **four-layer sequential validation pipeline** befo
 
 ### Fraud Detection Flow
 
-<img width="8192" height="5021" alt="Risk Scoring Engine-2026-03-20-154055" src="https://github.com/user-attachments/assets/f8879265-4c6a-4d66-8034-54ecaa49949b" />
+<img width="4317" height="8192" alt="Risk Scoring Engine-2026-03-20-154055" src="https://github.com/user-attachments/assets/eb43dbd2-095f-4ff3-8761-efc60342b312" />
 
 
 ### ML Risk Engine
