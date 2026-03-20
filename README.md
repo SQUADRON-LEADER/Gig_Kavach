@@ -706,7 +706,8 @@ Every payout passes through a **four-layer sequential validation pipeline** befo
 
 ### Architecture Diagram
 
-![Architecture Diagram](images/nnew.png)
+<img width="8192" height="4343" alt="3" src="https://github.com/user-attachments/assets/835266e8-c9e2-4d6f-8a67-2c9a7684b045" />
+
 
 ### Full System Overview
 
