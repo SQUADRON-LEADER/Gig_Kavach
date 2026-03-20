@@ -1,67 +1,113 @@
 <img width="1536" height="1024" alt="ChatGPT Image Mar 20, 2026, 03_53_03 PM" src="https://github.com/user-attachments/assets/bd29f743-8f85-4faf-9c00-65a942338c9d" />
 
-# GigKavach — AI-Powered Income Protection & Smart Savings for Gig Workers
+# GigKavach — AI-Powered Parametric Income Insurance & Smart Savings for Gig Workers
 
 > **Guidewire DEVTrails 2026 · Phase 1 Submission**
 > Team: **Bug_Hunter**
 
 ---
 
-## The Problem We're Solving
+## Table of Contents
 
-Meet **Rahul, 25, a delivery partner for Zepto in BTM Layout, Bengaluru.** He rides 10–11 hours a day, completes 15–20 deliveries, and earns between ₹900–₹1,100 on a productive day. There is no salary, no paid leave, no employer-provided safety net. Every rupee he earns is the direct result of hours spent on the road.
-
-Then the rain comes.
-
-Within 90 minutes of heavy rainfall, BTM Layout is waterlogged. Orders stop flowing. Rahul pulls over. He earns ₹180 that day — not because he stopped trying, but because the environment made it impossible to work. No insurance policy covers this. No platform steps in. The loss is entirely and silently his.
-
-This is not an edge case. **India has 7.7 million gig workers today**, projected to reach **23.5 million by 2029–30** (NITI Aayog, 2022). Delivery partners across food, grocery, and Q-commerce platforms form the fastest-growing labour segment in the country. They work entirely outdoors, earn strictly per delivery, and carry zero income protection against events beyond their control. Existing insurance products cover vehicles, health, and accidents. **No product today covers lost daily earnings caused by external disruptions.**
-
-GigKavach closes that gap — with parametric insurance, AI-driven risk assessment, and an integrated micro-savings model built specifically for the gig economy.
-
----
-
-## What GigKavach Builds
-
-GigKavach is a **hyperlocal, AI-powered parametric income protection and savings platform** for platform-based delivery riders. It continuously monitors environmental conditions across delivery zones, automatically detects disruption events, verifies rider activity through GPS data, and releases instant compensation — all without the rider filing a single claim form.
-
-Beyond insurance, GigKavach introduces a **micro-savings model**: small per-order deductions build a weekly protection pool. If a disruption occurs, the pool funds an instant payout. If the week passes disruption-free, the rider's savings are returned with interest — turning protection into a financial habit.
-
-**Coverage scope:** Lost income from external disruptions only. Health, vehicle, and accident claims are strictly excluded per platform guidelines.
-**Pricing model:** Weekly premiums, aligned to the gig worker's earnings cycle.
-**Payout model:** Fully automated and parametric — triggered by verified data, not paperwork.
+1. [The Problem](#1-the-problem)
+2. [What GigKavach Builds](#2-what-gigkavach-builds)
+3. [Persona — Who We Are Protecting](#3-persona--who-we-are-protecting)
+4. [Core Disruptions Covered](#4-core-disruptions-covered)
+5. [Parametric Insurance — The Core of GigKavach](#5-parametric-insurance--the-core-of-gigkavach)
+6. [Weekly Premium Model](#6-weekly-premium-model)
+7. [Parametric Trigger & Payout Logic](#7-parametric-trigger--payout-logic)
+8. [Micro-Savings Model](#8-micro-savings-model)
+9. [Business Model & Financial Viability](#9-business-model--financial-viability)
+10. [AI / ML Integration](#10-ai--ml-integration)
+11. [Fraud Detection Architecture](#11-fraud-detection-architecture)
+12. [System Architecture](#12-system-architecture)
+13. [MVP Features](#13-mvp-features)
+14. [Technology Stack](#14-technology-stack)
+15. [Development Plan](#15-development-plan)
+16. [Key Design Decisions](#16-key-design-decisions)
+17. [Future Scope & Scalability](#17-future-scope--scalability)
 
 ---
 
-## How GigKavach Works (End-to-End Flow)
+## 1. The Problem
+
+### The Human Reality
+
+Meet **Rahul, 25, a delivery partner for Zepto in Velachery, Chennai.** He rides 10–11 hours a day, completing 15–20 deliveries, and earns between ₹900–₹1,100 on a productive day. There is no salary, no paid leave, no employer-provided safety net. Every rupee he earns is the direct result of hours spent on the road.
+
+Then the monsoon arrives.
+
+Within 90 minutes of heavy rainfall, Velachery is waterlogged. Orders stop flowing. Rahul pulls over. He earns ₹180 that day — not because he gave up, but because the environment made it physically impossible to work. No insurance policy covers this. No platform steps in. The loss is entirely and silently his.
+
+This is not an edge case. **This is Tuesday in October.**
+
+### The Scale of the Problem
+
+| Metric | Figure | Source |
+|---|---|---|
+| Gig workers in India today | 7.7 million | NITI Aayog, 2022 |
+| Projected gig workers by 2029–30 | 23.5 million | NITI Aayog, 2022 |
+| Delivery partners as % of gig workforce | ~47% | Industry estimate |
+| Average income loss per disruption event | ₹180–₹300 | GigKavach field research |
+| Disruption days per year (Chennai) | 40–60 days | IMD historical data |
+| Annual income loss per rider from disruptions | ₹7,200–₹18,000 | Calculated estimate |
+| Riders with any form of income insurance | Near 0% | — |
+
+### What Existing Insurance Misses
+
+| Insurance Type | What It Covers | What It Misses |
+|---|---|---|
+| Health / Accidental Insurance | Hospitalisation, injuries | Lost workdays due to weather |
+| Vehicle Insurance | Bike damage, third-party liability | Lost income when riding is impossible |
+| Personal Accident Cover | Death, permanent disability | Temporary income disruption |
+| Platform-linked ESIC | Formal employees only | Gig workers are contractors, not employees |
+| **GigKavach** | **Lost daily earnings from external disruptions** | — |
+
+The gap is structural. Every existing product covers the asset (health, vehicle) or the catastrophe (death, disability). **Nobody covers the lost hours** — the 3-hour window on a Tuesday afternoon when Velachery floods and 200 riders lose ₹250 each, simultaneously, with no recourse.
+
+**GigKavach closes exactly that gap.**
+
+---
+
+## 2. What GigKavach Builds
+
+GigKavach is a **hyperlocal, AI-powered parametric income insurance and micro-savings platform** built exclusively for platform-based delivery riders. It continuously monitors environmental conditions across delivery zones, automatically detects disruption events, verifies rider activity through GPS, and disburses instant compensation — without the rider filing a single claim form.
+
+Beyond insurance, GigKavach introduces a **micro-savings layer**: small per-order deductions build a weekly protection pool. If a disruption occurs, the pool funds an instant payout. If the week passes disruption-free, the rider's savings are returned with 4–5% interest — transforming protection into a financial habit.
+
+### The Two-Outcome Promise
 
 ```
-Rahul completes a delivery
-        ↓
-₹2–₹5 micro-deduction per order → Weekly Savings Pool
-        ↓
-Coverage Activated
-        ↓
-Continuous Disruption Monitoring (Rain · AQI · Heat · Traffic · Storm)
-        ↓
-        ├── Disruption Detected?
-        │       YES → AI calculates payout (₹200–₹400/day)
-        │             GPS + activity verified
-        │             Fraud checks pass
-        │             → Instant UPI payout to Rahul
-        │
-        └── No Disruption?
-                → Week ends normally
-                → 10% platform service fee deducted
-                → 4–5% interest added to remaining pool
-                → Savings + Interest returned to Rahul
+Every week, Rahul contributes ₹2–₹5 per delivery into his GigKavach pool.
+                              ↓
+        ┌─────────────────────────────────────┐
+        │   Was there a covered disruption?   │
+        └─────────────────────────────────────┘
+               ↓ YES                  ↓ NO
+    ┌──────────────────┐    ┌──────────────────────┐
+    │  Instant UPI     │    │  Savings + 4–5%      │
+    │  Payout          │    │  Interest returned   │
+    │  (₹200–₹400/day) │    │  to Rahul's wallet   │
+    └──────────────────┘    └──────────────────────┘
 ```
 
-This dual-outcome model means GigKavach is never a pure cost for the worker — it either protects their income during bad days or grows their savings during good ones.
+**GigKavach is never a pure cost.** Either it protects income on bad days, or it grows savings on good ones.
+
+### Coverage Boundaries (Critical Constraints)
+
+| In Scope ✅ | Out of Scope ❌ |
+|---|---|
+| Lost earnings from weather disruptions | Health or medical expenses |
+| Income loss from waterlogging / flooding | Vehicle damage or repair costs |
+| Lost wages during extreme heat events | Accident compensation |
+| Earnings dropped during high AQI days | Life insurance payouts |
+| Income lost to curfews / local strikes (Phase 2) | Platform service charges or app issues |
 
 ---
 
-## Persona: Who We Are Protecting
+## 3. Persona — Who We Are Protecting
+
+### Representative Persona
 
 | Attribute | Detail |
 |---|---|
@@ -73,349 +119,723 @@ This dual-outcome model means GigKavach is never a pure cost for the worker — 
 | **Avg Deliveries/Day** | 14–17 orders |
 | **Avg Hourly Income** | ₹85–₹100/hr |
 | **Monthly Net Income** | ₹18,000–₹24,000 (after fuel & maintenance) |
-| **Current Insurance** | None — no income protection |
+| **Phone** | Android, ₹10,000–₹14,000 range |
+| **Connectivity** | Intermittent 4G; signal drops during heavy rain |
+| **Current Insurance** | None — zero income protection |
+| **Financial Buffer** | Less than ₹3,000 in savings on average |
 | **Key Vulnerabilities** | Heavy rain (Oct–Dec), heat waves (May–Jun) |
+| **Primary Language** | Tamil |
 
-### Why Food & Q-Commerce Riders?
+### Why Food & Q-Commerce Riders Specifically?
 
-Delivery riders operate in some of the most volatile income environments of any profession. Their earnings are directly and immediately tied to:
-
-- **Weather conditions** — rain halts operations faster than any policy can respond
-- **Local demand patterns** — hyperlocal zone blockages reduce orders within minutes
-- **Road accessibility** — a single waterlogged underpass can shut down an entire shift
-
-In dense urban areas, even a **small disruption within 1 km** of a rider's operating zone can eliminate 60–70% of their earning potential for that window. Q-commerce and food delivery riders are especially exposed because their delivery radii are tight (1.5–3 km), making hyperlocal conditions disproportionately impactful.
+| Factor | Why It Matters for GigKavach |
+|---|---|
+| Outdoor-only work | 100% exposure to environmental conditions — no option to work remotely |
+| Per-delivery earnings | Income drops to zero the moment deliveries stop; no floor exists |
+| Tight delivery radii | 1.5–3 km zones mean a single waterlogged street can halt an entire shift |
+| High disruption frequency | Chennai averages 40–60 disruption-worthy days per year |
+| Zero employer obligation | Platforms classify riders as contractors; no statutory income protection |
+| Large addressable base | 1.2M+ active food/Q-commerce delivery riders in India's top 10 cities |
 
 ### Ravi's Disruption Scenario (Worked Example)
 
-| Condition | Deliveries/hr | Rate/Delivery | Hourly Earnings |
+**Normal Working Day:**
+
+| Metric | Value |
+|---|---|
+| Deliveries per hour | 3 |
+| Earnings per delivery | ₹32 |
+| Hourly income | ₹96 |
+| Working hours | 9 hrs |
+| Daily gross income | ₹864 |
+
+**Heavy Rain Disruption (Velachery, 70mm in 2–3 hrs):**
+
+| Metric | Value |
+|---|---|
+| Deliveries per hour (during disruption) | 1 |
+| Earnings per delivery | ₹32 |
+| Hourly income (during disruption) | ₹32 |
+| Disruption window | 3 hours |
+| Income lost in disruption window | ₹192 |
+| **GigKavach Estimated Payout** | **₹140–₹175** |
+| Ravi's recovery rate | 73–91% of lost income |
+
+---
+
+## 4. Core Disruptions Covered
+
+GigKavach protects against **5 objectively measurable primary disruptions** in Phase 1, expanding to social disruptions in Phase 2. Each threshold is calibrated to the specific point at which delivery completion rates in Chennai demonstrably decline.
+
+### Environmental Disruptions (Phase 1)
+
+| # | Disruption | Trigger Threshold | Monitoring Frequency | Chennai Risk Level | Peak Season |
+|---|---|---|---|---|---|
+| 1 | Heavy Rainfall | ≥ 40 mm within 3 hrs | Every 15 min | 🔴 High | Oct–Dec |
+| 2 | Urban Waterlogging | Rain + low-lying zone flag active | Every 15 min | 🔴 High | Oct–Dec |
+| 3 | Extreme Heat | ≥ 42°C for ≥ 2 consecutive hrs | Every 30 min | 🟡 Medium | May–Jun |
+| 4 | Air Pollution | AQI ≥ 250 for ≥ 6 hrs | Every 1 hr | 🟢 Low | Jan–Feb |
+| 5 | Strong Winds / Storm | Wind ≥ 50 km/h (weather alert issued) | Event-based | 🟠 Moderate | Pre-monsoon |
+
+### Social / Human-Caused Disruptions (Phase 2)
+
+| # | Disruption | Detection Method | Coverage Trigger |
 |---|---|---|---|
-| Normal Day | 3 | ₹32 | ₹96 |
-| Heavy Rain (70mm in 2–3 hrs) | 1 | ₹32 | ₹32 |
+| 6 | Traffic Congestion | Google Maps API severity index | Congestion score ≥ 0.7 for ≥ 2 hrs |
+| 7 | Curfews / Section 144 | Government notification feeds | Official order in rider's zone |
+| 8 | Strikes / Roadblocks | Civic alert APIs + GPS anomaly clustering | ≥30% of zone riders show zero movement |
+| 9 | Sudden Zone Closures | Geo-fence breach detection | Platform dispatch halted in zone |
 
-- **Disruption Window:** 3 hours
-- **Estimated Income Loss:** ₹192
-- **GigKavach Estimated Payout:** ₹140–₹175 (hybrid model)
+### Disruption Impact by Type
 
----
-
-## Core Disruptions Covered
-
-GigKavach protects against **5 objectively measurable disruptions** that directly reduce delivery activity in Chennai. Each threshold is verifiable via third-party APIs and calibrated to the actual point at which delivery performance degrades.
-
-| # | Disruption | Trigger Threshold | Monitoring Frequency | Risk Level |
-|---|---|---|---|---|
-| 1 | Heavy Rainfall | ≥ 40 mm within 3 hrs | Every 15 min | 🔴 High |
-| 2 | Urban Waterlogging | Rain + low-lying zone flag | Every 15 min | 🔴 High |
-| 3 | Extreme Heat | ≥ 42°C for ≥ 2 hrs | Every 30 min | 🟡 Medium |
-| 4 | Air Pollution | AQI ≥ 250 for ≥ 6 hrs | Every 1 hr | 🟢 Low |
-| 5 | Strong Winds / Storm | Wind ≥ 50 km/h | Event-based | 🟠 Moderate |
-
-**Selection rationale:** These five disruptions are objectively measurable via public APIs, historically frequent in Chennai's climate profile, and directly correlated with measurable drops in delivery completion rates. Human-created disruptions (curfews, strikes, zone closures) are covered in Phase 2 expansion.
+| Disruption | Avg. Delivery Reduction | Avg. Income Loss (3-hr window) | Data Source |
+|---|---|---|---|
+| Heavy Rainfall (>40mm) | 65–75% | ₹175–₹220 | IMD + field estimates |
+| Urban Waterlogging | 80–90% | ₹200–₹260 | IMD + rider interviews |
+| Extreme Heat (>42°C) | 30–40% | ₹80–₹120 | IMD historical data |
+| High AQI (>250) | 15–25% | ₹40–₹75 | CPCB data |
+| Storm / High Wind | 50–60% | ₹130–₹175 | IMD data |
 
 ---
 
-## Weekly Premium Model
+## 5. Parametric Insurance — The Core of GigKavach
+
+> This section is the conceptual and technical heart of GigKavach. Every downstream design decision — the premium model, the payout formula, the fraud architecture — flows from the choice to build on parametric insurance principles.
+
+### Traditional Insurance vs. Parametric Insurance
+
+| Dimension | Traditional Insurance | GigKavach Parametric Insurance |
+|---|---|---|
+| **Claim trigger** | Rider must file a claim after the loss | Automatic — triggered by verified external data |
+| **Assessment** | Manual loss assessment by an adjuster | Pre-agreed threshold crossed → payout computed algorithmically |
+| **Processing time** | Days to weeks | Minutes to hours |
+| **Documentation required** | Bills, photos, police reports, receipts | None — the data is the evidence |
+| **Payout basis** | Actual assessed damage | Pre-defined formula applied to verified sensor data |
+| **Rider effort** | High — multiple steps, follow-ups | Zero — rider receives a notification, not a form |
+| **Operational cost** | High (claims adjusters, paper processing) | Low (fully automated pipeline) |
+| **Suitability for gig workers** | Poor — riders lack formal documentation | Excellent — objective data replaces paperwork entirely |
+
+### Why Parametric Is the Only Viable Model for Gig Workers
+
+Ravi's income disruptions share three properties that make traditional insurance structurally unworkable:
+
+1. **Simultaneous** — A Chennai monsoon event affects hundreds of riders at the same time. Individual assessment is economically impossible at this scale.
+2. **Short-duration** — Events last 2–6 hours. By the time a traditional claim is processed, the week is already over.
+3. **Objectively measurable** — Rainfall, AQI, and temperature are published by neutral third-party sources (IMD, CPCB, OpenWeatherMap). There is no ambiguity about whether the event occurred.
+
+Parametric insurance exists precisely for this combination. GigKavach applies it at the hyperlocal, per-rider level — something no existing insurance product does.
+
+### The Parametric Insurance Lifecycle (Per Week)
+
+```
+Monday 00:00 — Weekly Zone Risk Score computed by ML Engine
+         ↓
+Rider purchases weekly policy (or auto-renews)
+         ↓
+12–24 hr waiting period (anti-backdating protection)
+         ↓
+Coverage Active for 7-day window
+         ↓
+Real-time environmental monitoring (every 15–60 min by disruption type)
+         ↓
+Disruption threshold crossed in rider's zone?
+         ↓
+   YES                              NO (week ends cleanly)
+    ↓                                    ↓
+Rider GPS + activity verified       Savings + 4–5% interest
+Hybrid Score computed                returned to rider's wallet
+Fraud checks passed
+    ↓
+Payout disbursed via UPI (same day)
+         ↓
+Event logged → updates zone's historical disruption frequency
+         ↓
+Feeds back into next week's ML risk score recalculation
+```
+
+---
+
+## 6. Weekly Premium Model
 
 ### Design Philosophy
 
-Premiums are calculated once per week based on the rider's primary delivery zone using historical environmental data — not real-time spikes. This approach ensures:
+Premiums are calculated **once per week** per delivery zone, using historical environmental data — not real-time spikes. This produces stable, predictable costs for the worker and actuarially sound pricing that reflects long-run risk rather than news cycles.
 
-- **Stable, predictable costs** for the worker (no mid-week surprises)
-- **Actuarially sound pricing** grounded in historical patterns
-- **Seasonal recalibration** without day-to-day volatility
+The ML risk model is retrained weekly, so premiums calibrate continuously as climate and urban conditions shift — without exposing riders to intra-week volatility.
 
 ### Zone Risk Score Formula
 
-The core of GigKavach's premium engine is a weighted risk score computed per zone by our ML model (Gradient Boosting):
+The Gradient Boosting model outputs a zone risk score (0–100) that is the **sole input** to the premium tier lookup. No manual pricing override exists.
 
 ```
-Risk Score = (Rain Risk   × 0.30)
-           + (Flood Risk  × 0.25)
-           + (Heat Risk   × 0.20)
+Risk Score = (Rain Risk    × 0.30)
+           + (Flood Risk   × 0.25)
+           + (Heat Risk    × 0.20)
            + (Traffic Risk × 0.15)
-           + (Storm Risk  × 0.10)
+           + (Storm Risk   × 0.10)
 ```
+
+**Weight rationale:**
+
+| Factor | Weight | Rationale |
+|---|---|---|
+| Rain Risk | 0.30 | Most frequent income-stopping disruption in Chennai's climate profile |
+| Flood Risk | 0.25 | Causes most severe and complete delivery halts; correlated with rain but distinct threshold |
+| Heat Risk | 0.20 | Meaningful impact on rider health and order demand; rarely causes complete stoppage |
+| Traffic Risk | 0.15 | Partially correlated with rain; retains independent weight for social disruption contribution |
+| Storm Risk | 0.10 | Infrequent but high-impact when it occurs; lower base probability |
 
 ### Worked Example — Velachery, Chennai
 
-| Risk Factor | Score (0–100) | Weight | Contribution |
+| Risk Factor | Raw Score (0–100) | Weight | Weighted Contribution |
 |---|---|---|---|
-| Rain Risk | 65 | 0.30 | 19.5 |
-| Flood Risk | 60 | 0.25 | 15.0 |
-| Heat Risk | 40 | 0.20 | 8.0 |
+| Rain Risk | 65 | 0.30 | 19.50 |
+| Flood Risk | 60 | 0.25 | 15.00 |
+| Heat Risk | 40 | 0.20 | 8.00 |
 | Traffic Risk | 35 | 0.15 | 5.25 |
-| Storm Risk | 25 | 0.10 | 2.5 |
-| **Total Zone Score** | | | **50.25 → Moderate** |
+| Storm Risk | 25 | 0.10 | 2.50 |
+| **Total Zone Score** | — | — | **50.25 → Moderate Risk** |
 
 ### Weekly Premium Tiers
 
-| Risk Category | Score Range | Weekly Premium | Coverage Limit |
+| Risk Category | Score Range | Weekly Premium | Coverage Limit | Monthly Equivalent | Cost per Day |
+|---|---|---|---|---|---|
+| Low Risk | 0–30 | ₹20 | ₹1,000 | ~₹87 | ~₹2.86 |
+| Moderate Risk | 31–50 | ₹35 | ₹1,500 | ~₹152 | ~₹5.00 |
+| High Risk | 51–70 | ₹50 | ₹2,000 | ~₹217 | ~₹7.14 |
+| Very High Risk | 71–85 | ₹70 | ₹2,000 | ~₹304 | ~₹10.00 |
+| Extreme Risk | 86–100 | ₹90 | ₹2,000 | ~₹391 | ~₹12.86 |
+
+> **For Ravi (Velachery — Moderate Risk):** ₹35/week → ₹1,500 weekly coverage. Less than the cost of one biryani, for a full week of income protection.
+
+### Seasonal Risk Adjustments
+
+| Season | Period | Adjustment | Affected Risk Factor |
 |---|---|---|---|
-| Low Risk | 0–30 | ₹20 | ₹1,000 |
-| Moderate Risk | 31–50 | ₹35 | ₹1,500 |
-| High Risk | 51–70 | ₹50 | ₹2,000 |
-| Very High Risk | 71–85 | ₹70 | ₹2,000 |
-| Extreme Risk | 86–100 | ₹90 | ₹2,000 |
+| Monsoon | Oct–Dec | +10% | Rain Risk |
+| Summer | May–Jun | +10% | Heat Risk |
+| Winter | Jan–Feb | +10% | Pollution Risk |
+| Pre-Monsoon | Mar–Apr | +5% | Storm Risk |
 
-> **For Ravi (Velachery):** ₹35/week → ₹1,500 weekly coverage. Less than the cost of one meal out, for a full week of income protection.
+Premiums are locked at purchase. Seasonal adjustments only apply at the **next** weekly recalculation — riders are never repriced mid-week.
 
-### Seasonal Adjustments
+### Premium-to-Coverage Ratio Analysis
 
-Applied at the start of each week to keep pricing climatically honest:
+| Risk Tier | Weekly Premium | Max Coverage | Protection Ratio | Break-Even Disruption |
+|---|---|---|---|---|
+| Low | ₹20 | ₹1,000 | 50× | 0.27 hrs of lost ₹90/hr income |
+| Moderate | ₹35 | ₹1,500 | 43× | 0.39 hrs |
+| High | ₹50 | ₹2,000 | 40× | 0.56 hrs |
+| Very High | ₹70 | ₹2,000 | 28.6× | 0.78 hrs |
+| Extreme | ₹90 | ₹2,000 | 22.2× | 1.00 hr |
 
-- **Monsoon (Oct–Dec):** Rain risk +10%
-- **Summer (May–Jun):** Heat risk +10%
-- **Winter (Jan–Feb):** Pollution risk +10%
-
-Premiums are locked on purchase for the week. Real-time disruption events feed back into the zone's historical data, adjusting future weekly recalculations through the ML pipeline — so pricing improves continuously without exposing riders to intra-week shocks.
+Even in the most expensive tier, **a single hour of covered disruption more than justifies the full weekly premium.**
 
 ### Payout Caps
 
-| Level | Limit |
-|---|---|
-| Per Hour | ₹90 |
-| Per Event | ₹1,200 |
-| Per Week | ₹1,500 |
-| Per Month | ₹5,000 |
+| Level | Cap | Rationale |
+|---|---|---|
+| Per Hour | ₹90 | Matches average hourly income ceiling; prevents payout exceeding actual loss |
+| Per Disruption Event | ₹1,200 | Single-event cap; multiple events in a week each get their own calculation |
+| Per Week | ₹1,500 | Hard weekly ceiling aligned with Moderate tier coverage limit |
+| Per Month | ₹5,000 | Monthly safety ceiling across 4 weekly policies |
 
 ---
 
-## Parametric Trigger & Payout Logic
+## 7. Parametric Trigger & Payout Logic
 
-### Automated Five-Step Flow
+### Five-Step Automated Pipeline
 
 ```
-1. Poll environmental APIs (Rain: 15 min · Temp: 30 min · AQI: 1 hr)
-         ↓
-2. Evaluate thresholds per delivery zone
-         ↓
-3. Compute zone disruption score
+Step 1 — Environmental Polling
+   OpenWeatherMap: Rainfall, temp, wind → every 15–30 min
+   AQICN: AQI index → every 1 hr
+   Traffic API: Congestion index → every 15 min
+              ↓
+Step 2 — Zone Threshold Evaluation
+   Each 2×2 km zone evaluated independently
+   Rainfall ≥ 40mm / Temp ≥ 42°C / AQI ≥ 250 / Wind ≥ 50 km/h
+              ↓
+Step 3 — Disruption Score Computation
    Env_Score = (0.4 × Rain_norm) + (0.3 × AQI_norm) + (0.3 × Traffic_norm)
    Disruption confirmed: Env_Score ≥ 0.6 AND Activity_Drop ≥ 0.4
-         ↓
-4. Verify rider eligibility
-   GPS presence in disruption zone ≥ 50% of event duration
-   Active session · Policy active · No fraud flags
-         ↓
-5. Compute payout via Hybrid Model → disburse via UPI
+              ↓
+Step 4 — Rider Eligibility Verification
+   ✓ GPS in disruption zone for ≥ 50% of event duration
+   ✓ Active work session (GPS moving, no idle > 15 min)
+   ✓ Weekly policy active at time of event
+   ✓ No Critical fraud flags
+              ↓
+Step 5 — Hybrid Score + Payout Calculation
+   Final Payout = Expected_Income × Hybrid_Score × Lost_Hours
+   Disburse via Razorpay → UPI → Push notification to rider
 ```
 
-### Why the Hybrid Model?
+### Why Three Signals Beat One — The Hybrid Model
 
-A single-signal parametric trigger creates **basis risk** — the trigger fires but the rider wasn't actually impacted, or the rider was impacted but the trigger missed the threshold. GigKavach uses a **weighted composite of three independent signals** to triangulate actual income impact with precision:
+Most parametric insurance uses a **single trigger → fixed payout**. This creates **basis risk**: the threshold fires but the rider wasn't impacted, or the rider was impacted but the trigger didn't fire. GigKavach uses a **weighted composite of three independent signals** to triangulate actual income impact:
 
 ```
 Hybrid Score = (0.5 × Income Deviation)
              + (0.3 × Activity Drop)
              + (0.2 × Environmental Score)
 
-Final Payout = Expected Income × Hybrid Score × Lost Hours
-             (subject to hourly, event, and weekly caps)
+Final Payout = Expected_Income(zone, time) × Hybrid_Score × Lost_Hours
+             (subject to per-hour, per-event, and weekly caps)
 ```
 
-### Ravi's Payout Calculation (Worked Example)
+**Signal Weight Rationale:**
 
-| Signal | Calculation | Score |
+| Signal | Weight | Rationale |
 |---|---|---|
-| Income Deviation | (₹90 − ₹32) / ₹90 | 0.64 |
-| Activity Drop | (16 − 5) / 16 | 0.69 |
-| Environmental Score | Combined API factors | 0.70 |
-| **Hybrid Score** | 0.5×0.64 + 0.3×0.69 + 0.2×0.70 | **0.66** |
-| **Final Payout** | ₹90 × 0.66 × 3 hrs | **₹178** ✓ |
+| Income Deviation | 50% | Most direct proxy for actual earnings loss; highest signal reliability |
+| Activity Drop | 30% | GPS-verified behaviour confirms the disruption impacted real work output |
+| Environmental Score | 20% | Third-party data provides objective context; lower weight because it doesn't directly measure the rider's personal loss |
+
+### Ravi's Full Payout Calculation (Worked Example)
+
+**Scenario:** 3-hour monsoon disruption in Velachery. Ravi's baseline rate is ₹90/hr. During disruption, he manages ₹32/hr.
+
+| Signal | Formula | Values | Score |
+|---|---|---|---|
+| Income Deviation | (Expected − Actual) / Expected | (₹90 − ₹32) / ₹90 | **0.644** |
+| Activity Drop | (Normal orders − Actual) / Normal | (16 − 5) / 16 | **0.688** |
+| Environmental Score | 0.4×Rain + 0.3×AQI + 0.3×Traffic | Combined API factors | **0.700** |
+| **Hybrid Score** | 0.5×0.644 + 0.3×0.688 + 0.2×0.700 | — | **0.662** |
+| **Final Payout** | ₹90 × 0.662 × 3 hrs | — | **₹179** ✓ |
+
+### Disruption Scenario Comparison Table
+
+| Scenario | Type | Hours | Hybrid Score | Payout | Cap Check |
+|---|---|---|---|---|---|
+| Light rain, partial slowdown | Rain 30mm | 1.5 | 0.32 | ₹43 | ✅ |
+| Heavy monsoon, full halt | Rain 70mm + Flooding | 3 | 0.66 | ₹179 | ✅ |
+| Peak summer heat | Heat 43°C | 2 | 0.38 | ₹68 | ✅ |
+| Severe storm + road closure | Wind 55km/h + Traffic | 4 | 0.71 | ₹256 | ✅ |
+| Persistent pollution | AQI 280 for 6+ hrs | 4 | 0.28 | ₹101 | ✅ |
+| Worst-case combined event | Rain + Flood + Wind | 6 | 0.85 | ₹459 (capped) | ⚠️ Event cap ₹1,200 |
 
 ---
 
-## AI / ML Integration
+## 8. Micro-Savings Model
 
-GigKavach's intelligence layer consists of four purpose-built models that work in concert across risk assessment, fraud prevention, income estimation, and disruption forecasting.
+The micro-savings layer transforms GigKavach from a pure insurance product into a **savings instrument with a floor guarantee** — solving the classic insurance retention problem where riders who don't claim feel they wasted their premium.
 
-### 1. Risk Scoring Engine — Zone-Level Disruption Prediction
+### How Micro-Savings Work
 
-| Attribute | Detail |
-|---|---|
-| **Model** | Gradient Boosting (`scikit-learn`) |
-| **Input Features** | Rainfall frequency (3–5 yr historical), flood event count, heatwave days/yr, winter AQI baseline, storm frequency, zone elevation, drainage quality flag |
-| **Output** | Zone risk score (0–100) → sole input to weekly premium tier lookup |
-| **Retraining Cadence** | Weekly, on new disruption event data |
+| Step | Action | Detail |
+|---|---|---|
+| 1 | Per-order deduction | ₹2–₹5 automatically deducted per completed delivery |
+| 2 | Pool accumulation | Deductions aggregate into the rider's **Weekly Savings Pool** |
+| 3 | Coverage activation | Pool balance ≥ tier minimum activates weekly coverage |
+| 4a | Disruption occurs | Pool funds the payout (supplemented by platform reserve if needed) |
+| 4b | No disruption | Pool returned with 4–5% annualised interest at week end |
+| 5 | Service fee | 10% platform fee deducted from undisrupted pool before return |
 
-**Why Gradient Boosting?** Flood risk is non-linear in rainfall — it spikes sharply when drainage capacity is exceeded rather than scaling proportionally. Gradient Boosting captures these threshold effects and outperforms linear regression on structured environmental datasets of this size. The ML model's score is the **sole driver** of premium calculation — there is no separate manual pricing step.
+### Weekly Savings Pool Projection (Ravi — 15 deliveries/day, 6 days/week)
 
-### 2. Fraud Detection Engine — GPS & Behavioural Anomaly Detection
+| Day | Deliveries | Deduction/Order | Day's Contribution | Running Pool |
+|---|---|---|---|---|
+| Monday | 15 | ₹3 | ₹45 | ₹45 |
+| Tuesday | 16 | ₹3 | ₹48 | ₹93 |
+| Wednesday | 14 | ₹3 | ₹42 | ₹135 |
+| Thursday | 17 | ₹3 | ₹51 | ₹186 |
+| Friday | 15 | ₹3 | ₹45 | ₹231 |
+| Saturday | 16 | ₹3 | ₹48 | ₹279 |
 
-| Attribute | Detail |
-|---|---|
-| **Model** | Isolation Forest + rule-based validation layer |
-| **Input Features** | GPS speed between consecutive points, location jump distance/min, idle time ratio, zone boundary crossing frequency, historical claim rate per rider |
-| **Output** | Fraud risk score: Low / Medium / High / Critical → payout held at Critical |
+**Scenario A — Disruption on Thursday:** Pool at ₹186. Payout of ₹179 triggered. Remaining ₹7 returned after service fee.
 
-**Why Isolation Forest?** It is unsupervised — no labelled fraud examples are needed at launch. It naturally surfaces outliers (e.g., a rider whose GPS logs show 120 km/h through Velachery) and scales gracefully as claim data accumulates.
+**Scenario B — Clean week:** Pool at ₹279. Service fee (10%) = ₹27.90. Interest at 4.5% annualised on ₹279 for 7 days ≈ ₹2.41. **Total returned to Ravi: ₹253.51**
 
-### 3. Income Baseline Estimator — Per-Zone, Per-Hour Expected Earnings
+### Savings vs. Payout Outcome Matrix
 
-| Attribute | Detail |
-|---|---|
-| **Model** | Gradient Boosting regression |
-| **Input Features** | POI density (restaurants, dark stores), population density, road connectivity index, historical order volume, time of day, day of week |
-| **Output** | `Expected_Income(zone, time)` — baseline for payout calculation |
-
-Platform earnings APIs are not publicly available. GigKavach uses proxy features (POI density × connectivity / traffic factor) that exhibit strong correlation with actual delivery volume in urban Q-commerce zones.
-
-### 4. Disruption Forecasting — 48-Hour Predictive Alerts (Phase 3)
-
-| Attribute | Detail |
-|---|---|
-| **Model** | Facebook Prophet (time-series) |
-| **Input Features** | Historical weather data, seasonal patterns, IMD forecast signals |
-| **Output** | Probability of disruption event in next 48 hrs → proactive rider notifications + dynamic risk alerts |
+| Week Type | Pool Built | Event | Payout | Return to Rider | Net Position |
+|---|---|---|---|---|---|
+| Excellent — no disruption | ₹279 | None | — | ₹253.51 | Saved ₹253.51 |
+| Average — 1 disruption (3 hrs) | ₹186 | Heavy Rain | ₹179 | ₹5 remainder | Protected ₹179 |
+| Rough — 2 disruptions | ₹160 | Rain + Heat | ₹150 + ₹68 | Capped at ₹1,500/week | Max protection applied |
+| Worst case — no policy | ₹0 | Any event | ₹0 | ₹0 | Fully exposed |
 
 ---
 
-## Fraud Detection Architecture
+## 9. Business Model & Financial Viability
 
-Every payout passes through a **four-layer validation pipeline** before disbursement. No single layer alone can block a legitimate claim — only a combination of correlated signals elevates the fraud score to a blocking threshold.
+### Revenue Streams
+
+| Revenue Stream | Description | Stage |
+|---|---|---|
+| **Platform Service Fee** | 10% deduction from undisrupted weekly savings pools | Primary — active from Day 1 |
+| **Premium Spread** | Margin between premium tier collected and actual payout cost | Primary — actuarial |
+| **Interest Float** | Interest earned on pooled funds during the 7-day coverage window | Secondary — scales with AUM |
+| **B2B Platform Licensing** | API license fees from Swiggy, Zomato, Zepto to offer GigKavach as a native benefit | Growth phase |
+| **Data Insights (Anonymised)** | Aggregated zone disruption + income pattern reports for urban planners and platforms | Future — opt-in |
+
+### Unit Economics — Per Rider Per Week (Moderate Risk, Ravi's Profile)
+
+| Line Item | Value | Notes |
+|---|---|---|
+| Revenue: Weekly Premium | ₹35 | Collected upfront |
+| Revenue: Service Fee (clean week) | ₹27.90 | 10% of ₹279 pool |
+| Gross Revenue (clean week) | ₹62.90 | — |
+| Cost: Expected Payout | ₹119 | 40% disruption probability × ₹298 avg payout |
+| Cost: Interest Return (clean week) | ₹2.41 | 4.5% annualised on ₹279 for 7 days |
+| Cost: API + Infrastructure | ~₹3 | Per-rider per-week estimate |
+| Net Margin (clean week) | ~₹57.49 | — |
+| Net Margin (disruption week) | ~₹-83 | Payout exceeds premium; covered by pool + risk reserve |
+| **Blended Weekly Margin** | **~₹12–₹18** | At 40% disruption rate across portfolio |
+
+### Loss Ratio Projections
+
+| Disruption Frequency | Avg Payout | Blended Loss Ratio | Status |
+|---|---|---|---|
+| 20% of weeks (Low Risk zone) | ₹120 | 68% | ✅ Healthy |
+| 40% of weeks (Moderate Risk) | ₹179 | 82% | ✅ Viable |
+| 60% of weeks (High Risk — monsoon) | ₹210 | 101% | ⚠️ Requires reinsurance |
+| 80% of weeks (Extreme zone) | ₹250 | 139% | ❌ Premium must increase |
+
+This is precisely why the ML risk engine recalibrates weekly — zones trending toward unsustainable loss ratios trigger premium tier reviews in the next cycle automatically.
+
+### Scale Economics
+
+| Metric | 1,000 Riders | 10,000 Riders | 100,000 Riders |
+|---|---|---|---|
+| Weekly Premium Revenue | ₹35,000 | ₹3,50,000 | ₹35,00,000 |
+| Weekly Service Fee Revenue | ₹27,900 | ₹2,79,000 | ₹27,90,000 |
+| Weekly Payout Liability | ₹47,600 | ₹4,76,000 | ₹47,60,000 |
+| **Net Weekly Margin** | ₹15,300 | ₹1,53,000 | ₹15,30,000 |
+| **Annualised Run Rate** | ₹7.95 lakh | ₹79.5 lakh | ₹7.95 crore |
+
+### Competitive Positioning
+
+| Platform | Segment | Coverage Type | Payout Method | Weekly Model | AI-Driven |
+|---|---|---|---|---|---|
+| **GigKavach** | Gig delivery riders | Lost income only (disruption) | Instant UPI (parametric) | ✅ | ✅ |
+| Bajaj Allianz Gig Cover | General gig workers | Health + accident | Manual claim | ❌ | ❌ |
+| ICICI Lombard Gig | Platform workers | Vehicle + accident | Manual claim | ❌ | ❌ |
+| Ola / Rapido Insurance | Ride-hailing drivers | Accident only | Claim-based | ❌ | Partial |
+| **No existing product** | **Delivery rider income** | **External disruption loss** | **Automated** | — | — |
+
+GigKavach occupies an uncontested space: automated income protection for disruption-caused earnings loss, on a weekly cycle, with zero claim-filing required.
+
+---
+
+## 10. AI / ML Integration
+
+GigKavach's intelligence layer consists of four purpose-built models operating in a continuous feedback loop. Every element of premium pricing, payout calculation, and fraud detection is AI-driven — there is no manual override layer in the production pipeline.
+
+### Model Overview
+
+| Model | Purpose | Algorithm | Retraining Cadence |
+|---|---|---|---|
+| Risk Scoring Engine | Zone-level weekly premium computation | Gradient Boosting (scikit-learn) | Weekly |
+| Fraud Detection Engine | GPS + behavioural anomaly detection | Isolation Forest + rule layer | Continuous |
+| Income Baseline Estimator | Per-zone, per-hour expected earnings | Gradient Boosting regression | Weekly |
+| Disruption Forecaster | 48-hr ahead disruption probability | Facebook Prophet (time-series) | Daily |
+
+---
+
+### Model 1 — Risk Scoring Engine
+
+| Attribute | Detail |
+|---|---|
+| **Algorithm** | `GradientBoostingRegressor` (scikit-learn) |
+| **Training Data** | 3–5 years: IMD rainfall, CPCB AQI, flood event registry, heatwave days, storm alerts |
+| **Input Features** | Rainfall frequency (days >40mm/yr), flood event count, heatwave days/yr, winter AQI avg, storm frequency, zone elevation (m), drainage quality flag (0/1) |
+| **Output** | Continuous score 0–100 → mapped to premium tier |
+| **Validation Metric** | RMSE against held-out zone disruption frequency |
+| **Update Cycle** | Retrained every Monday 00:00 on prior week's event data |
+
+**Why Gradient Boosting over alternatives:**
+
+| Model | Verdict | Reason |
+|---|---|---|
+| Linear Regression | ❌ Rejected | Cannot capture non-linear threshold effects (flood risk spikes at drainage saturation) |
+| Random Forest | ⚠️ Considered | Similar accuracy; less interpretable for regulatory review |
+| Neural Network | ❌ Rejected | Overkill for <50 structured features; requires more data than available at launch |
+| **Gradient Boosting** | ✅ Selected | Handles non-linearity; works well on small structured datasets; provides feature importance for audit |
+
+---
+
+### Model 2 — Fraud Detection Engine
+
+| Attribute | Detail |
+|---|---|
+| **Algorithm** | Isolation Forest (unsupervised) + deterministic rule-based validation |
+| **Input Features** | GPS speed between points, location jump distance/min, idle time ratio, zone boundary crossing frequency, historical claim rate per rider, claim rate vs. zone average |
+| **Output** | Fraud risk score: Low / Medium / High / Critical |
+| **Threshold Actions** | Low: auto-pay · Medium: audit log · High: 24-hr hold · Critical: block |
+| **Labelled Data Required** | None at launch — model bootstraps on anomaly detection |
+
+**Why Isolation Forest:**
+
+| Property | Benefit |
+|---|---|
+| Unsupervised | No labelled fraud examples needed at launch — critical for a new platform |
+| Anomaly-first | Naturally surfaces outliers (e.g., GPS showing 120 km/h in Velachery) |
+| Scalable | Degrades gracefully as volume grows; can be augmented with supervised models once labelled data accumulates |
+
+---
+
+### Model 3 — Income Baseline Estimator
+
+| Attribute | Detail |
+|---|---|
+| **Algorithm** | Gradient Boosting regression |
+| **Input Features** | POI density (restaurants, dark stores), population density, road connectivity index, historical order volume proxy, hour of day (0–23), day of week (0–6) |
+| **Output** | Predicted hourly income ₹ for a given zone + time slot |
+| **Why not platform data?** | Swiggy / Zomato / Zepto earnings APIs are not publicly accessible. Proxy features (POI density × connectivity / traffic factor) correlate strongly with actual delivery volume in dense urban zones. |
+
+**Estimated Feature Importance:**
+
+| Feature | Est. Importance |
+|---|---|
+| Hour of day | ~28% |
+| Historical order volume proxy | ~24% |
+| POI density (restaurants + dark stores) | ~20% |
+| Road connectivity index | ~14% |
+| Day of week | ~10% |
+| Population density | ~4% |
+
+---
+
+### Model 4 — Disruption Forecaster (Phase 3)
+
+| Attribute | Detail |
+|---|---|
+| **Algorithm** | Facebook Prophet (additive time-series decomposition) |
+| **Input Features** | Historical daily rainfall (5 yr), historical AQI (5 yr), seasonal decomposition, IMD forecast signals |
+| **Output** | P(disruption) per zone for next 48 hrs in 6-hr bands |
+| **Use Cases** | Proactive rider alerts ("High disruption risk tomorrow"), dynamic risk overlays on admin dashboard, optional premium adjustment signal for next week |
+
+### ML Pipeline Architecture
+
+```
+Raw Data Sources
+  IMD Historical · CPCB AQI · OpenWeatherMap · GPS Logs · Claim Records
+              ↓
+Data Preprocessing Layer
+  Feature Engineering · Normalisation · Zone Aggregation · Time Windowing
+              ↓
+Model Training (Weekly Batch for Risk/Income · Continuous for Fraud · Daily for Forecast)
+              ↓
+Model Registry (versioned, rollback-capable)
+              ↓
+Inference Layer
+  Risk Score API · Fraud Score API · Income Estimate API · Forecast API
+              ↓
+Kavach Core Engine consumes all four APIs in the trigger pipeline
+```
+
+---
+
+## 11. Fraud Detection Architecture
+
+Every payout passes through a **four-layer sequential validation pipeline** before disbursement. No single layer can independently block a legitimate claim — only a combination of correlated anomalies escalates the fraud score to a blocking threshold.
 
 ### Layer 1 — GPS Anomaly Detection
-- Speed check: >80 km/h between consecutive GPS points → Flag
-- Location jump: >5 km displacement within 1 minute → Flag
-- Mock location detection: Device-level check for GPS spoofing apps / developer mode active
-- Path continuity: Non-road trajectories flagged via map-matching
+
+| Check | Threshold | Action on Breach |
+|---|---|---|
+| Speed between GPS points | >80 km/h | Flag |
+| Location displacement | >5 km in 1 minute | Flag |
+| Mock location detection | Developer mode or spoofing app active | Flag |
+| Path continuity | Non-road trajectory via map-matching | Flag |
+| GPS update interval | Perfectly regular 1.000s cadence (spoofing app pattern) | Flag |
 
 ### Layer 2 — Activity Verification
-- Minimum distance: >1 km covered within any 30-minute window
-- Idle threshold: <15 minutes of continuous idle during an active session
-- Speed range: 10–40 km/h (consistent with urban two-wheeler delivery profiles)
-- Zone presence: Rider must be physically inside the disruption zone for ≥50% of the event duration
+
+| Check | Threshold | Action |
+|---|---|---|
+| Minimum distance in 30-min window | <1 km covered | Flag |
+| Continuous idle during active session | >15 minutes idle | Flag |
+| Speed range consistency | Outside 10–40 km/h for >50% of session | Flag |
+| Zone presence during disruption | <50% of event duration in disruption zone | Hard ineligibility — excluded |
+| Accelerometer variance (Phase 2) | Near-zero while GPS reports movement | Flag |
 
 ### Layer 3 — Duplicate Claim Prevention
-- Each disruption event is assigned a unique `Event_ID`
-- Composite uniqueness key: `(Rider_ID + Event_ID + Zone_ID)` — duplicate records are rejected at the database level
-- Enforced: one payout per rider per disruption event, no exceptions
+
+| Rule | Implementation |
+|---|---|
+| Event ID uniqueness | Each disruption event assigned a globally unique `Event_ID` |
+| Composite key check | `(Rider_ID + Event_ID + Zone_ID)` must be unique in claims table |
+| Duplicate handling | Exact duplicate → silent reject; near-duplicate → manual review queue |
+| Enforcement level | Database constraint — cannot be bypassed at application layer |
 
 ### Layer 4 — Policy Validation
-- An active weekly policy must exist at the exact time of the disruption
-- A **12–24 hr waiting period** is enforced post-purchase to prevent retroactive policy buying
 
-### ML Risk Engine
-
-![ML Risk Engine](images/riskengine.jpg)
-
-### Fraud Score → System Action
-
-| Risk Level | System Response |
+| Rule | Detail |
 |---|---|
-| **Low** | Session monitored; payout proceeds automatically |
-| **Medium** | Session flagged; payout proceeds with full audit log |
-| **High** | Payout held 24 hrs; manual review queued; rider notified |
-| **Critical** | Payout blocked; account explicitly flagged for investigation |
+| Active policy requirement | Policy must be `ACTIVE` at the disruption event's start timestamp |
+| Waiting period enforcement | 12–24 hr mandatory post-purchase waiting period; coverage = `PENDING` during this window |
+| Anti-backdating check | Policy purchase timestamp must precede disruption start by ≥ waiting period |
+| Coverage limit check | Running weekly payout total must be below weekly cap at time of computation |
+
+### Fraud Risk Score → System Response
+
+| Score Range | Risk Level | System Response | Rider Communication |
+|---|---|---|---|
+| 0–30 | Low | Payout auto-proceeds | "₹179 credited to your UPI" |
+| 31–60 | Medium | Payout proceeds + full audit log | "₹179 credited — session logged for quality assurance" |
+| 61–85 | High | Payout held 24 hrs; manual review queued | "Claim under review — you'll hear back in 24 hrs" |
+| 86–100 | Critical | Payout blocked; account flagged | "Claim requires additional verification — our team will contact you" |
+
+### Key Fraud Scenarios & Detection Logic
+
+| Fraud Scenario | Detection Signals | Response |
+|---|---|---|
+| GPS spoofing (rider at home) | Mock location flag + near-zero accelerometer + cell tower mismatch | High/Critical score → hold |
+| Duplicate claim for same event | `(Rider_ID + Event_ID + Zone_ID)` already in DB | Hard reject at database |
+| Policy purchased after event | Purchase timestamp > event start − waiting period | Policy invalid for that event |
+| Coordinated syndicate fraud | ≥30 riders from same zone claim simultaneously; GPS interval clustering | Zone fraud alert; cluster quarantined |
+| Idle rider claiming disruption | >15 min idle during claimed window | Layer 2 flag → reduced/zero payout |
+| Rider outside disruption zone | GPS centroid in zone <50% of event duration | Hard eligibility exclusion |
 
 ### Fraud Detection Flow
 
 ![Fraud Detection](images/frauddetection.jpg)
 
+### ML Risk Engine
+
+![ML Risk Engine](images/riskengine.jpg)
+
 ---
 
-## System Architecture
+## 12. System Architecture
 
 ### Architecture Diagram
 
 ![Architecture Diagram](images/nnew.png)
 
-### Component Overview
+### Full System Overview
 
 ```
-External Data Sources
-  Weather API · AQI Data · GPS / Maps · Traffic APIs · Flood Alerts
+                    EXTERNAL DATA SOURCES
+   ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+   │ Weather  │   AQI    │  GPS /   │ Traffic  │  Flood   │
+   │   API    │   API    │  Maps    │   API    │  Alerts  │
+   └────┬─────┴────┬─────┴────┬─────┴────┬─────┴────┬─────┘
+        └──────────┴──────────┴──────────┴──────────┘
                               ↓
-              Kavach Core Engine (Backend System)
-    ┌─────────────────────────────────────────────────┐
-    │  Vighna Engine    →  Disruption Detection       │
-    │  Jokhim Engine    →  Risk Scoring               │
-    │  Vishwas Engine   →  Fraud Detection            │
-    │  Payout Engine    →  Compensation Logic         │
-    │  Activity Engine  →  Work Session Verification  │
-    │  ML Engine        →  Prediction Pipeline        │
-    └─────────────────────────────────────────────────┘
-                              ↓
-              Data Layer — Supabase + PostGIS
-       Users · Zones · Policies · Claims · GPS Logs · Audit Logs
-                              ↓
-         ┌──────────────────────────────────────────┐
-         │  Rider App (React Native — Mobile)       │
-         │  Admin Dashboard (React — Web)           │
-         │  Notification System (Firebase FCM)      │
-         │  Payment System (Razorpay)               │
-         └──────────────────────────────────────────┘
+              ┌──────────────────────────────────────────────┐
+              │         KAVACH CORE ENGINE (Backend)         │
+              │                                              │
+              │  Vighna Engine    → Disruption Detection     │
+              │  Jokhim Engine    → Risk Scoring             │
+              │  Vishwas Engine   → Fraud Detection          │
+              │  Payout Engine    → Compensation Logic       │
+              │  Activity Engine  → Work Verification        │
+              │  ML Engine        → Prediction Pipeline      │
+              └──────────────────────┬───────────────────────┘
+                                     ↓
+              ┌──────────────────────────────────────────────┐
+              │       DATA LAYER — Supabase + PostGIS        │
+              │  Users · Zones · Policies · Claims           │
+              │  GPS Logs · Risk Scores · Audit Trail        │
+              └──────────────────────┬───────────────────────┘
+                                     ↓
+              ┌──────────────────────────────────────────────┐
+              │            CLIENT APPLICATIONS               │
+              │  Rider App (React Native — Mobile)           │
+              │  Admin Dashboard (React — Web)               │
+              │  Notification System (Firebase FCM)          │
+              │  Payment System (Razorpay)                   │
+              └──────────────────────────────────────────────┘
 ```
 
 ### Engine Descriptions
 
-| Engine | Role |
-|---|---|
-| **Vighna Engine** | Continuously monitors environmental and social disruption signals at hyperlocal zone level |
-| **Jokhim Engine** | Calculates dynamic zone risk scores from environmental data and historical patterns; drives weekly premium pricing |
-| **Vishwas Engine** | Detects fraudulent activity using GPS anomaly detection, behavioural analysis, and multi-layer validation |
-| **Payout Engine** | Computes compensation using the hybrid model — combines income deviation, activity drop, and environmental score |
-| **Activity Engine** | Validates genuine rider presence and activity during claimed disruption windows |
-| **ML Engine** | Houses all predictive models: risk scoring, income estimation, fraud detection, and disruption forecasting |
+| Engine | Core Function | Key Inputs | Key Outputs |
+|---|---|---|---|
+| **Vighna Engine** | Monitors environmental + social disruption signals at zone level | Weather API, AQI, Traffic, Flood alerts | Disruption event records per zone |
+| **Jokhim Engine** | Calculates dynamic zone risk scores; drives premium pricing | Historical env. data, ML risk model | Zone risk score (0–100), premium tier |
+| **Vishwas Engine** | Multi-layer fraud detection before every payout | GPS logs, accelerometer, claim history | Fraud score (Low/Med/High/Critical) |
+| **Payout Engine** | Computes hybrid payout; enforces all caps | Income baseline, hybrid score, disruption duration | Final payout ₹ |
+| **Activity Engine** | Validates genuine rider presence during disruption window | GPS session data, zone boundaries | Eligibility decision (Yes/No) |
+| **ML Engine** | Unified inference layer for all predictive models | All data sources | Risk score, fraud score, income estimate, forecast |
+
+### Database Schema (Key Tables)
+
+| Table | Key Fields | Purpose |
+|---|---|---|
+| `users` | rider_id, name, phone, zone_id, kyc_status | Rider profiles and onboarding state |
+| `zones` | zone_id, polygon (PostGIS), risk_score, premium_tier | 2×2 km monitoring grid cells |
+| `policies` | policy_id, rider_id, zone_id, week_start, premium_paid, status | Weekly coverage records |
+| `disruption_events` | event_id, zone_id, type, start_time, end_time, env_score | Confirmed disruption events |
+| `claims` | claim_id, rider_id, event_id, hybrid_score, payout_amount, fraud_score, status | Payout records |
+| `gps_logs` | log_id, rider_id, lat, lng, speed, timestamp, session_id | Raw GPS tracking data |
+| `savings_pool` | pool_id, rider_id, week_id, balance, deductions, interest, status | Micro-savings tracking |
+| `audit_trail` | audit_id, entity_type, entity_id, action, actor, timestamp | Full immutable audit log |
 
 ### Hyperlocal Zone Model
 
-GigKavach divides the city into **2 km × 2 km monitoring grid cells**, each evaluated independently. This scale was chosen deliberately:
+| Property | Detail |
+|---|---|
+| Grid size | 2 km × 2 km per monitoring cell |
+| Chennai zone count | ~185 active monitoring zones |
+| Zone assignment | GPS centroid of rider's active sessions → primary zone |
+| Independent evaluation | Each zone evaluated separately — Velachery flooding ≠ T. Nagar flooding |
+| Spatial queries | PostGIS `ST_Within` for GPS-to-zone; `ST_Intersects` for adjacency alerts |
 
-- Weather APIs provide ~1 km resolution data
-- Urban flooding in Chennai is highly localised (Velachery floods while Adyar remains dry)
-- Blinkit / Zepto / Swiggy dark stores serve 1.5–3 km radii
-- CPCB pollution station spacing averages 3–5 km
+**Why 2×2 km is the optimal grid size:**
 
-This means disruption detection, risk scoring, and payout calculation all operate at the granularity that actually matches a rider's real working environment.
+| Data Source | Native Resolution | Compatible? |
+|---|---|---|
+| OpenWeatherMap | ~1 km | ✅ Yes |
+| CPCB Pollution Stations | 3–5 km spacing | ✅ Close enough |
+| Swiggy / Zepto dark store radii | 1.5–3 km | ✅ Matches well |
+| Urban flood patterns (Chennai) | Sub-2 km variation | ✅ Captures hyperlocal differences |
 
 ### Application Workflow
 
 ```
-User Signup & KYC (name, phone, zone, vehicle)
-           ↓
-Zone Assignment + Income Baseline Estimated
-           ↓
-Weekly Policy Purchase (Razorpay)
-   → 12–24 hr waiting period → Coverage Active
-           ↓
-Work Session Begins (GPS tracking starts)
-           ↓
-Background: Zone monitored every 15–30 min
-           ↓
-Disruption Detected?
-   YES → Rider Eligibility Verified (GPS + Activity + Policy)
-       → Hybrid Model Calculates Payout
-       → Fraud Checks Pass?
-           YES → Razorpay Disburse → Push Notification
-           NO  → Held for Review (rider notified)
-   NO  → Session Continues
-           ↓
-Session End → Earnings Summary + Payout History Displayed
+RIDER JOURNEY
+
+Sign Up & KYC (name, phone, zone, vehicle, Aadhaar)
+         ↓
+Zone Assigned · Income Baseline Estimated (ML Engine)
+         ↓
+Weekly Policy Purchase (select tier · pay via Razorpay)
+   → 12–24 hr waiting period → Coverage: ACTIVE
+         ↓
+Start Work Session (GPS background tracking begins)
+         ↓
+Every 15–30 min: Zone conditions checked
+         ↓
+Disruption threshold crossed in rider's zone?
+   YES                                      NO
+    ↓                                        ↓
+GPS presence verified ≥50% in zone      Continue session
+Activity Engine confirms active work
+Hybrid Score computed
+Fraud check: Low/Medium → pay; High → hold; Critical → block
+Payout ₹ released via Razorpay → UPI
+Push notification: "₹179 credited to your account"
+         ↓
+Session End → Weekly Summary Dashboard
+  Total earnings · Total protected income · Pool balance / interest return
 ```
 
 ---
 
-## MVP Features
+## 13. MVP Features
 
-GigKavach's feature set is designed around a single principle: every feature must directly improve the gig worker's financial stability or reduce their exposure to income risk.
+Every feature maps to one of three value pillars: **Protect** (insurance core), **Predict** (AI intelligence), or **Empower** (financial growth).
 
-| # | Feature (Hindi Name) | Description |
-|---|---|---|
-| 1 | **Aay Darpan** (Earnings Dashboard) | Real-time daily and weekly earnings view with protected income tracking |
-| 2 | **Jokhim Soochak** (Risk Indicator) | Live risk feed using weather and AQI data; colour-coded zone alerts |
-| 3 | **Suraksha Kavach** (Smart Insurance) | Auto-activates weekly coverage; triggers instant payouts on verified disruptions |
-| 4 | **Swayam Claim** (Auto Claim System) | Zero-touch claim processing with real-time status visibility |
-| 5 | **Sahi Chayan** (Smart Order Selection) | AI-powered order recommendations based on earnings potential, distance, and demand |
-| 6 | **Surakshit Kshetra Map** (Safe Zone Map) | Live heatmap of low, medium, and high-risk working zones |
-| 7 | **AI Margdarshak** (AI Assistant) | Suggests optimal working times and zones for maximum earnings on any given day |
-| 8 | **Vishwas Score** (Trust Score) | Fraud detection score with rider reliability rating for platform transparency |
-| 9 | **Kaarya Pradarshan** (Performance Tracker) | Monitors work efficiency and delivery patterns over time |
-| 10 | **SurakshaPay** (Savings Wallet) | Micro-savings engine with easy deposit tracking and withdrawal |
-| 11 | **Bonus Vaapsi** (Cashback Rewards) | Returns savings with 4–5% interest if no claims are made in the week |
-| 12 | **Bhasha Sathi** (Language Assistant) | Multilingual voice support (Tamil, Hindi, Kannada, Telugu) for accessibility |
-| 13 | **Smart Suchna** (Smart Notifications) | Real-time push alerts for risks, disruptions, and earning opportunities |
+| # | Feature | Pillar | Description |
+|---|---|---|---|
+| 1 | **Aay Darpan** (Earnings Dashboard) | Empower | Real-time daily/weekly earnings with protected income overlay and full payout history |
+| 2 | **Jokhim Soochak** (Risk Indicator) | Predict | Live risk feed from weather and AQI; colour-coded zone status (Green / Yellow / Red) |
+| 3 | **Suraksha Kavach** (Smart Insurance) | Protect | Auto-activates weekly coverage; triggers instant UPI payouts during verified disruptions |
+| 4 | **Swayam Claim** (Auto Claim System) | Protect | Zero-touch parametric claim processing; live status: Active / Under Review / Approved / Held |
+| 5 | **Sahi Chayan** (Smart Order Selection) | Predict | AI-powered order recommendations: best earnings potential, lowest current risk zone |
+| 6 | **Surakshit Kshetra Map** (Safe Zone Map) | Predict | Live heatmap of low/medium/high-risk working zones; updated every 15 min |
+| 7 | **AI Margdarshak** (AI Assistant) | Predict | Recommends optimal working windows and zones for maximum earnings on any given day |
+| 8 | **Vishwas Score** (Trust Score) | Protect | Fraud detection reliability score; visible to platform partners for accountability |
+| 9 | **Kaarya Pradarshan** (Performance Tracker) | Empower | Tracks work efficiency, delivery patterns, and earnings trends over time |
+| 10 | **SurakshaPay** (Savings Wallet) | Empower | Micro-savings engine; per-order deduction tracking, pool balance, withdrawal history |
+| 11 | **Bonus Vaapsi** (Cashback Rewards) | Empower | Pool returned with 4–5% interest on disruption-free weeks |
+| 12 | **Bhasha Sathi** (Language Assistant) | Empower | Multilingual voice support: Tamil, Hindi, Kannada, Telugu |
+| 13 | **Smart Suchna** (Smart Notifications) | Protect | Real-time push alerts: disruption warnings, payout confirmations, earning opportunities |
 
 ---
 
@@ -425,100 +845,147 @@ GigKavach's feature set is designed around a single principle: every feature mus
 
 ---
 
-## Technology Stack
+## 14. Technology Stack
 
 | Layer | Technology | Rationale |
 |---|---|---|
-| **Mobile App** | React Native | Cross-platform; background GPS tracking; optimised for low-end Android devices with intermittent connectivity |
-| **Web Dashboard** | React | Admin monitoring interface; insurers work at desks, not on phones |
-| **Backend API** | FastAPI / Node.js | Async-first architecture ideal for real-time polling loops and event-driven triggers |
-| **Database** | Supabase (PostgreSQL) | Managed Postgres with built-in auth, real-time subscriptions, and Row-Level Security |
-| **Geospatial** | PostGIS (via Supabase) | Zone mapping, GPS-to-zone assignment, spatial queries for hyperlocal disruption detection |
-| **AI / ML** | Python · scikit-learn · Prophet | Gradient Boosting for risk scoring and fraud; Prophet for 48-hr disruption forecasting |
-| **Weather API** | OpenWeatherMap | Rainfall, temperature, wind speed, storm alerts |
-| **Pollution API** | AQICN | Real-time AQI data per city zone |
-| **Payments** | Razorpay | Premium collection and instant payout disbursement (sandbox for Phase 1–2) |
-| **Notifications** | Firebase Cloud Messaging | Push alerts for disruption events, payout confirmations, risk warnings |
+| **Mobile App** | React Native | Cross-platform; background GPS; offline-tolerant; optimised for ₹10k–₹14k Android range |
+| **Admin Dashboard** | React (Web) | Insurer / admin interface; real-time zone monitoring, fraud review queue, loss ratio analytics |
+| **Backend API** | FastAPI (Python) + Node.js | FastAPI for ML inference endpoints (async, Python-native); Node.js for auth and business logic |
+| **Database** | Supabase (PostgreSQL) | Managed Postgres; built-in auth; real-time subscriptions; Row-Level Security for per-rider data isolation |
+| **Geospatial** | PostGIS (via Supabase) | Zone mapping; GPS-to-zone assignment; `ST_Within` / `ST_DWithin` for hyperlocal spatial queries |
+| **ML / AI** | Python · scikit-learn · Facebook Prophet | Gradient Boosting (risk + income); Isolation Forest (fraud); Prophet (48-hr forecasting) |
+| **Weather API** | OpenWeatherMap (free tier) | Rainfall, temperature, wind speed, storm alerts at ~1 km resolution |
+| **Pollution API** | AQICN (free tier) | Real-time AQI by city zone; CPCB station data integration |
+| **Payments** | Razorpay | Premium collection + instant payout disbursement; sandbox for Phase 1–2; production in Phase 3 |
+| **Notifications** | Firebase Cloud Messaging (FCM) | Push alerts: disruption warnings, payout confirmations, risk notifications |
+| **DevOps** | Docker + GitHub Actions | Containerised deployment; CI/CD pipeline for ML model updates and backend releases |
 
 ### Why Mobile-First?
 
-Ravi does not work at a desk. He uses a ₹10,000–₹14,000 Android phone, often with intermittent connectivity, in weather conditions that may be actively compromising signal quality. GigKavach's mobile app is designed with this reality in mind:
-
-- Offline-tolerant GPS session tracking
-- Background location services that persist through app minimisation
-- Push notifications for disruption alerts during active shifts
-- Single-handed UI navigation optimised for use between deliveries
+| User Reality | GigKavach Response |
+|---|---|
+| ₹10,000–₹14,000 Android phone | App optimised for low-end devices; minimal RAM footprint |
+| Connectivity drops during rain | Offline-tolerant GPS session tracking; local queue for data sync when signal returns |
+| App minimised while riding | Background location services persist through minimisation |
+| One-handed use between deliveries | Single-thumb navigation; large touch targets; minimal text input |
+| Tamil-speaking primary user | Tamil UI default; voice commands available in Tamil |
 
 ---
 
-## Development Plan
+## 15. Development Plan
 
 ### Phase 1 — Core Backend & Data Ingestion ✅ Completed
 
-- [x] Node.js business logic and authentication setup
-- [x] API Gateway configuration for secure request routing
-- [x] Data storage schema: User Profiles, Location Data, Earnings Data, Risk Scores
-- [x] Integration with external APIs (Weather, AQI, Traffic)
-- [x] Basic Admin Dashboard for live tracking
-- [x] Core architecture planning and finalisation
+| Task | Status |
+|---|---|
+| Node.js business logic + authentication setup | ✅ Done |
+| API Gateway configuration for secure request routing | ✅ Done |
+| Data storage schema: Users, Location, Earnings, Risk Scores | ✅ Done |
+| Integration: Weather API, AQI API, Traffic API | ✅ Done |
+| Basic Admin Dashboard for live zone tracking | ✅ Done |
+| Core architecture planning and finalisation | ✅ Done |
 
 ### Phase 2 — ML Engine & Automated Triggers 🔄 In Progress
 
-- [ ] ML Engine setup: data preprocessing pipelines, income estimation model
-- [ ] Risk prediction modelling using real-time API data
-- [ ] Statistical fraud detection deployment (Isolation Forest)
-- [ ] Trigger Engine: Rain, AQI, Traffic, and Heat automated triggers
-- [ ] Automated risk score evaluation pipeline (ML Engine → Trigger Engine)
-- [ ] Risk heatmap integration on Admin Dashboard
+| Task | Status |
+|---|---|
+| ML Engine: data preprocessing pipelines + income estimation | 🔄 In Progress |
+| Risk prediction modelling via real-time API data | 🔄 In Progress |
+| Isolation Forest fraud detection deployment | ⏳ Upcoming |
+| Trigger Engine: 5 automated disruption triggers | ⏳ Upcoming |
+| Automated ML → Trigger pipeline (risk score → premium assignment) | ⏳ Upcoming |
+| Risk heatmap integration on Admin Dashboard | ⏳ Upcoming |
 
 ### Phase 3 — Client Applications & Payment Execution 📋 Upcoming
 
-- [ ] Rider Mobile App (React Native): onboarding, KYC, policy purchase, session tracking
-- [ ] Full backend linkage: continuous GPS ingestion → policy management → disruption monitoring
-- [ ] Razorpay integration: premium collection + instant payout to wallet / UPI
-- [ ] End-to-end auto-payout trigger testing (Trigger Engine → Payment System)
-- [ ] Payout analytics module on Admin Dashboard
-- [ ] Final simulation: live disruption trigger → fraud verification → instant payout
-- [ ] Prophet-based 48-hr disruption forecasting and proactive notifications
+| Task | Status |
+|---|---|
+| Rider Mobile App: onboarding, KYC, policy purchase, session tracking | 📋 Planned |
+| Full backend linkage: GPS → policy → disruption → payout | 📋 Planned |
+| Razorpay integration: premium collection + instant UPI payout | 📋 Planned |
+| End-to-end auto-payout trigger testing (simulated disruption → payout) | 📋 Planned |
+| Payout analytics module on Admin Dashboard | 📋 Planned |
+| Prophet-based 48-hr forecasting + proactive notifications | 📋 Planned |
+| Final simulation: live trigger → fraud check → instant payout demo | 📋 Planned |
 
 ---
 
-## Key Design Decisions
+## 16. Key Design Decisions
 
 ### Parametric Over Traditional Insurance
 
-Ravi's income disruptions are simultaneous (affecting hundreds of riders at once), short-duration (3–8 hours), and objectively measurable via third-party data. Traditional insurance requires individual damage assessment — too slow, too expensive, and wholly impractical for events that resolve within a working shift. Parametric triggers fire automatically when thresholds are crossed, delivering compensation the same day. The rider never files a claim.
+Ravi's disruptions are **simultaneous** (hundreds of riders at once), **short-duration** (2–6 hours), and **objectively measurable** (third-party APIs). Traditional insurance fails all three: individual loss assessment is too slow, too expensive, and wholly impractical for events that resolve within a shift. Parametric triggers fire automatically when thresholds are crossed, delivering same-day compensation. The rider never files a form.
 
-### Weekly Pricing Cycle
+### Weekly Pricing Cycle Alignment
 
-Gig workers are paid weekly by platforms. A monthly premium requires upfront capital many workers simply don't have at month-start. ₹35/week is a psychologically and financially accessible number, closely aligned with when workers actually receive their earnings.
+Gig workers receive platform earnings weekly. A monthly premium requires capital many riders don't hold at month-start. ₹35/week aligns the premium payment timing to earnings receipt, reducing both the psychological and financial barrier to adoption.
 
-### Hybrid Payout Model Over Single-Signal Triggers
+### Hybrid Model Over Single-Signal Triggers
 
-Single environmental triggers create basis risk — the threshold fires but the specific rider may not have been impacted, or vice versa. Combining income deviation (50%), activity drop (30%), and environmental score (20%) triangulates actual impact from three independent data sources, minimising both false payouts and missed legitimate claims.
+Single environmental triggers create basis risk in both directions. Combining income deviation (50%), activity drop (30%), and environmental score (20%) triangulates actual impact from three independent signals — the same principle used in institutional parametric products like those from Swiss Re and Arbol.
 
-### 2 km × 2 km Zone Grid
+### 2×2 km Zone Grid
 
-Smaller than administrative ward boundaries (which average 15–20 km²), larger than individual GPS points. This is the smallest grid size at which weather APIs, CPCB pollution data, and GPS data are all simultaneously reliable — giving GigKavach the best possible resolution without degrading data quality.
+This is the smallest grid size at which weather API data, CPCB pollution data, and GPS session data are all simultaneously reliable. Ward-level boundaries (15–20 km²) are too coarse — Velachery floods while T. Nagar stays dry. Individual GPS points are too granular for zone-level risk aggregation. The 2×2 km grid is the precision sweet spot.
+
+### Micro-Savings as Engagement Engine
+
+Pure insurance products see low retention when riders don't claim. The savings return model solves this: disruption-free riders receive their pool back with interest. This creates a **positive outcome in every scenario** — critical for trust and word-of-mouth adoption in a community where financial product skepticism is high.
 
 ---
 
-## Future Scope & Scalability
+## 17. Future Scope & Scalability
 
-| Dimension | Expansion Plan |
+### Geographic Expansion Roadmap
+
+| Phase | Cities | Addressable Riders |
+|---|---|---|
+| Phase 1 (Current) | Chennai | ~80,000 |
+| Phase 2 | Chennai + Bengaluru | ~180,000 |
+| Phase 3 | + Mumbai, Hyderabad | ~320,000 |
+| Phase 4 | Top 10 Indian cities | ~650,000+ |
+
+The 2×2 km zone grid is city-agnostic. Adding a city requires only zone boundary data (OpenStreetMap), historical climate data (IMD archive), and platform zone mapping — no architectural changes.
+
+### Product Depth Expansion
+
+| Feature | Description | Timeline |
+|---|---|---|
+| Social disruption coverage | Curfews, strikes, zone closures via civic feeds | Phase 2 |
+| 48-hr forecasting alerts | Prophet model: proactive warnings before disruptions hit | Phase 3 |
+| Platform API integration | Direct Swiggy/Zomato order data replaces proxy income estimation | Partnership-dependent |
+| Long-term savings tiers | Annual goal savings: vehicle maintenance fund, emergency fund | Phase 3 |
+| Group policies | Co-purchase discount for riders in the same zone | Phase 4 |
+| Microfinance bridge | Zero-interest advance against next week's payout during severe disruption weeks | Phase 4 |
+
+### Regulatory & Partnership Pathway
+
+| Milestone | Detail |
 |---|---|
-| **Geography** | Pilot in Chennai and Bengaluru; extend to Mumbai, Hyderabad, Delhi NCR using the same zone-grid model |
-| **Disruption Types** | Add social disruptions: curfews, local strikes, sudden zone closures; integrate civic API feeds |
-| **Platform Partnerships** | Direct API access to Swiggy / Zomato order data would replace proxy income estimation with actual earnings verification |
-| **Savings Deepening** | Long-term savings tiers for annual goals (vehicle maintenance, emergency fund); integration with RBI-regulated micro-savings frameworks |
-| **Regulatory Path** | Partner with IRDAI-licensed insurers under the parametric insurance sandbox; GigKavach operates as a tech layer, not a direct insurer |
-| **Cross-Sector Expansion** | Construction daily-wage workers, auto-rickshaw drivers, and street vendors share identical income vulnerability profiles — the core engine generalises |
+| IRDAI Sandbox Registration | Apply under IRDAI's Regulatory Sandbox for InsurTech; parametric products are explicitly supported |
+| Reinsurance Backing | Partner with a reinsurer (Swiss Re, Munich Re) for high-risk zone loss ratio coverage |
+| Platform B2B Licensing | License GigKavach API to Swiggy/Zomato/Zepto for native in-app insurance offering |
+| SEBI-Registered Savings Partner | Partner with RBI-registered entity to manage savings pool for full regulatory compliance |
+
+### Cross-Sector Expansion
+
+The GigKavach core engine — parametric triggers, zone-level risk scoring, hybrid payout model — is not delivery-specific. The same architecture addresses identical income vulnerability across:
+
+| Sector | Worker | Primary Disruption |
+|---|---|---|
+| Construction | Daily-wage labourers | Rainfall halting site work |
+| Auto-rickshaw / cab | Drivers | Flooding, curfews, protests |
+| Street vendors | Self-employed traders | Heat, rain, zone closures |
+| Agricultural daily labour | Farm workers | Extreme heat, unseasonal rain |
 
 ---
 
 ## Summary
 
-GigKavach addresses a structural gap in India's gig economy: millions of workers who power daily urban logistics have no protection when external events make working impossible. By combining parametric insurance, AI-driven risk scoring, behavioural fraud detection, and a micro-savings model, GigKavach transforms a one-sided financial risk into a managed, data-driven safety net.
+GigKavach addresses a structural failure in how India's gig economy manages income risk. Millions of workers who power daily urban logistics have zero protection when external events make working impossible — and the losses are individually small, collectively enormous, and entirely invisible to existing financial products.
+
+By combining **parametric insurance** (instant, automatic, data-driven), **AI-powered zone risk scoring** (weekly premiums calibrated to historical disruption), **behavioural fraud detection** (multi-layer GPS and activity validation), and a **micro-savings model** (pool returned with interest on clean weeks), GigKavach transforms a one-sided financial risk into a managed, fair, and scalable safety net.
 
 For Ravi and the 23 million gig workers who will depend on platforms by 2030, GigKavach is not just a product — it is the financial infrastructure that should have existed from the start.
 
