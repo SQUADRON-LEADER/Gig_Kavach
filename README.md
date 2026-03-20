@@ -692,7 +692,8 @@ Every payout passes through a **four-layer sequential validation pipeline** befo
 
 ### Fraud Detection Flow
 
-![Fraud Detection](images/frauddetection.jpg)
+<img width="8192" height="5021" alt="Risk Scoring Engine-2026-03-20-154055" src="https://github.com/user-attachments/assets/f8879265-4c6a-4d66-8034-54ecaa49949b" />
+
 
 ### ML Risk Engine
 
@@ -841,7 +842,8 @@ Every feature maps to one of three value pillars: **Protect** (insurance core), 
 
 ## Mobile Application Preview
 
-<img width="1536" height="1024" alt="mob" src="https://github.com/user-attachments/assets/77868d3a-869f-414a-a637-24db15b9f1d9" />
+<img width="1536" height="1024" alt="1" src="https://github.com/user-attachments/assets/23f3df9d-e8b2-45b7-b587-0fe170fa01a5" />
+
 
 ---
 
