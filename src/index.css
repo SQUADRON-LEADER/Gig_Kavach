@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 18% 97%;
+    --foreground: 140 24% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 24% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 24% 12%;
+
+    --primary: 126 34% 26%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 104 31% 67%;
+    --secondary-foreground: 140 24% 12%;
+
+    --muted: 120 14% 93%;
+    --muted-foreground: 140 10% 40%;
+
+    --accent: 120 24% 92%;
+    --accent-foreground: 126 34% 22%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 14% 87%;
+    --input: 120 14% 87%;
+    --ring: 126 34% 26%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 126 34% 13%;
+    --sidebar-foreground: 120 18% 90%;
+    --sidebar-primary: 104 31% 67%;
+    --sidebar-primary-foreground: 140 24% 12%;
+    --sidebar-accent: 126 26% 19%;
+    --sidebar-accent-foreground: 120 18% 95%;
+    --sidebar-border: 126 22% 20%;
+    --sidebar-ring: 104 31% 67%;
+
+    --glass-bg: 0 0% 100% / 0.68;
+    --glass-border: 0 0% 100% / 0.38;
+    --glass-shadow: 0 8px 32px 0 rgba(30, 60, 30, 0.08);
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --info: 210 92% 55%;
+    --info-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 150 18% 7%;
+    --foreground: 120 16% 92%;
+
+    --card: 150 15% 10%;
+    --card-foreground: 120 16% 92%;
+
+    --popover: 150 15% 10%;
+    --popover-foreground: 120 16% 92%;
+
+    --primary: 104 31% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 104 28% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 150 12% 15%;
+    --muted-foreground: 120 10% 55%;
+
+    --accent: 150 16% 14%;
+    --accent-foreground: 104 31% 67%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 12% 18%;
+    --input: 150 12% 18%;
+    --ring: 104 31% 56%;
+
+    --sidebar-background: 150 18% 5%;
+    --sidebar-foreground: 120 16% 85%;
+    --sidebar-primary: 104 31% 56%;
+    --sidebar-primary-foreground: 140 24% 12%;
+    --sidebar-accent: 150 16% 12%;
+    --sidebar-accent-foreground: 120 16% 90%;
+    --sidebar-border: 150 10% 16%;
+    --sidebar-ring: 104 31% 56%;
+
+    --glass-bg: 150 15% 10% / 0.7;
+    --glass-border: 150 15% 20% / 0.3;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Raleway', sans-serif;
+    background-color: #F7F9F7;
+    background-image:
+      radial-gradient(circle at top left, rgba(46, 92, 49, 0.08), transparent 35%),
+      radial-gradient(circle at top right, rgba(174, 204, 174, 0.22), transparent 32%),
+      linear-gradient(180deg, #f8faf7 0%, #f3f7f1 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .font-sans-feature {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .glass-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.32) 100%);
+    @apply backdrop-blur-xl border border-white/50 rounded-2xl;
+    box-shadow: var(--glass-shadow);
+  }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:border-primary/20;
+  }
+  .gradient-primary {
+    @apply bg-gradient-to-br from-[#2E5C31] to-[#6B8E6B];
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#2E5C31] to-[#6B8E6B] bg-clip-text text-transparent;
+  }
+  .bottom-nav-item {
+    @apply flex flex-col items-center gap-0.5 text-muted-foreground transition-colors;
+  }
+  .bottom-nav-item.active {
+    @apply text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F7F9F7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #AecCAe;
+    border-radius: 3px;
+  }
+
+  body::selection {
+    background: #2E5C31;
+    color: white;
+  }
+}
