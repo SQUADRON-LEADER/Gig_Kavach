@@ -45,7 +45,7 @@ export default function Index() {
               <Leaf className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-sm font-semibold tracking-[0.25em] uppercase group-hover:opacity-80 transition-opacity">Gig Sahayata</p>
+              <p className="text-sm font-semibold tracking-[0.25em] uppercase group-hover:opacity-80 transition-opacity">Gig Kavach</p>
               <p className="text-[10px] text-[#526652] -mt-0.5">Safety-first gig platform</p>
             </div>
           </Link>
@@ -89,7 +89,7 @@ export default function Index() {
                 </h1>
 
                 <p className="text-base md:text-xl text-[#405240] font-sans-feature font-light max-w-2xl leading-relaxed">
-                  Gig Sahayata is a safety-first web platform for delivery partners and operators. Start with a polished dashboard, choose your login path, and then work inside a dedicated user or admin portal.
+                  Gig Kavach is a safety-first web platform for delivery partners and operators. Start with a polished dashboard, choose your login path, and then work inside a dedicated user or admin portal.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -310,7 +310,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 border-b border-white/10 pb-8">
             <div>
-              <p className="text-lg font-semibold tracking-tight text-white uppercase">Gig Sahayata</p>
+              <p className="text-lg font-semibold tracking-tight text-white uppercase">Gig Kavach</p>
               <p className="text-sm text-white/55 mt-2 max-w-xl">A calm, polished gig-safety website for user and admin workflows, with real map interaction and demo data.</p>
             </div>
             <div className="flex gap-3">

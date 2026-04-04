@@ -39,7 +39,7 @@ function StartupLoader() {
           <span className="absolute inset-1 rounded-full border-2 border-primary border-t-transparent animate-spin" />
         </div>
         <div>
-          <p className="text-sm font-semibold text-foreground">Loading Gig Sahayata</p>
+          <p className="text-sm font-semibold text-foreground">Loading Gig Kavach</p>
           <p className="text-xs text-muted-foreground">Preparing dashboard and safety portals</p>
         </div>
       </div>
