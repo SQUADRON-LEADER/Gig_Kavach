@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/stores/useAuthStore";
 
 const demoUser = {
-  email: "user@gigsahayata.demo",
+  email: "user@gigkavach.demo",
   password: "user123",
   name: "Rider Demo User",
 };
